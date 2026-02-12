@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+:root {
+    --button-bg: radial-gradient(circle, rgb(8, 56, 98) 0%, rgb(5, 32, 56) 100%);
+    --primary-bg: rgb(224, 238, 249);
+    --nav-bg: linear-gradient(0deg, rgb(87, 148, 199) 0%, rgb(75, 131, 165) 100%);
+    --footer-bg: rgb(0, 24, 46);
+    --off-bg: linear-gradient(
+        0deg,
+        rgb(224, 238, 249) 0%,
+        rgb(247, 250, 252) 30%,
+        rgb(247, 250, 252) 70%,
+        rgb(224, 238, 249) 100%
+    );
+    --primary-text: rgb(240, 240, 240);
+}
+
+body {
+    background-color: var(--primary-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    padding: 20% 0;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background: var(--nav-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .Logo {
+    position: absolute;
+    left: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+nav .Links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+a {
+    background: var(--button-bg);
+    box-shadow: inset 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: var(--primary-text);
+    padding: 10px;
+    width: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 100ms transform ease-in-out;
+}
+a:hover {
+    transform: scale(1.1);
+}
+a:active {
+    transform: scale(1.01);
+}
+
+.Greet {
+    text-align: center;
+}
+
+.Solution,
+.DualGreet,
+.DualAudience,
+.DualDesc {
+    text-align: left;
+}
+
+.InnerContainer {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10%;
+}
+
+.Services,
+.DualTech {
+    padding: 15% 0;
+    width: 100%;
+    background: var(--off-bg);
+    justify-content: center;
+    align-items: center;
+}
+.DualTech {
+    flex-direction: row;
+}
+.Service,
+.Tech {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 40%;
+    height: 200px;
+    padding: 20px;
+}
+.TechImage {
+    height: 120px;
+    background-color: var(--primary-bg);
+    border-radius: 20%;
+    padding: 10px;
+}
+.Apply {
+    padding: 10% 0;
+    flex-direction: row;
+    gap: 10%;
+}
+.Apply a {
+    width: 200px;
+    font-size: 1.4rem;
+    color: var(--primary-text);
+    background: var(--button-bg);
+    text-decoration: none;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: var(--footer-bg);
+    padding: 10% 0;
+}
+
+.ApplyForm {
+    width: 100%;
+    padding: 10% 0;
+    background: var(--off-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ApplyForm .Data {
+    width: 30%;
+    height: 600px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.ApplyForm .Data h2 {
+    font-size: 2rem;
+}
+.ApplyForm .Data input {
+    width: 200px;
+    background-color: var(--primary-bg);
+    border: 2px solid black;
+    padding: 5px;
+    font-size: 1.2rem;
+}
+.ApplyForm .Data .Inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+.ApplyForm .Data button {
+    padding: 10px;
+    width: 200px;
+    background: var(--button-bg);
+    color: var(--primary-text);
+}
