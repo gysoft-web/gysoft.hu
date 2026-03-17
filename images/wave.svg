@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+
+  <!-- kitöltött hullám -->
+  <path
+    d="M0 30
+       C25 0 75 0 100 30
+       C125 60 175 60 200 30
+       L200 60
+       L0 60
+       Z"
+    fill="rgba(61,179,217,0.63)"
+  />
+
+  <!-- csak a felső hullámvonal -->
+  <path
+    d="M0 30
+       C25 0 75 0 100 30
+       C125 60 175 60 200 30"
+    fill="none"
+    stroke="rgba(255,255,255,0.5)"
+    stroke-width="2"
+  />
+
+</svg>

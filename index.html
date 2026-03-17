@@ -7,8 +7,17 @@
         <title>GySzoft</title>
     </head>
     <body>
-        <nav>
-            <img src="./images/logo.png" alt="Company Logo" class="Logo" />
+        <nav class="nav">
+            <div
+                class="MenuToggle"
+                id="menuToggle"
+                onclick="document.querySelector('.nav').classList.toggle('active')"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="./images/logo.svg" alt="Company Logo" class="Logo" />
             <div class="Links">
                 <a href="index.html" class="Link">Főoldal</a>
                 <a href="dualPage.html" class="Link">Duális</a>
@@ -30,7 +39,7 @@
                 Jelenleg nagyon kevés cég képes vagy hajlandó foglalkozni diákokkal, amikor meg
                 foglalkoznak velük csak “kispadra” lesznek ültetve, nállunk mindenkit egyenlő
                 félként kezelünk, az egyetlen különbség köztünk hogy ki mihez és mennyire ért, és
-                ami fejlesztésre szorul terület abban segítsünk.
+                ami fejlesztésre szoruló terület abban segítsünk.
             </p>
         </section>
         <section class="Services">
@@ -83,9 +92,36 @@
             </div>
             <a href="applyPage.html"> Jelentkezés </a>
         </section>
-        <footer>
-            <a href="" class="FootLink">Impresszum</a>
-            <a href="" class="FootLink">Adatvédelmi Tájékoztató</a>
+        <footer class="footer">
+            <div class="footerColumn">
+                <div class="footerColumnItems">
+                    <h3>About us</h3>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                </div>
+                <div class="footerColumnItems">
+                    <h3>About us</h3>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                </div>
+                <div class="footerColumnItems">
+                    <h3>About us</h3>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                    <a href="#" class="btn lang" data-en="Link1" data-hu="Link1">Link1</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p
+                    class="lang"
+                    data-hu="© 2025 GySoft. Minden jog fenntartva."
+                    data-en="© 2025 GySoft. All rights reserved."
+                >
+                    © 2025 GySoft. Minden jog fenntartva.
+                </p>
+            </div>
         </footer>
     </body>
 </html>
