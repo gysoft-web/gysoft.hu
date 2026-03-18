@@ -128,10 +128,21 @@
             </section>
 
             <section class="features">
-                <div class="cards">
+                <div class="cards signupBox">
                     <h3 class="section-title">Jelentkezés</h3>
-                    <p>Ha érdekel a lehetőség, jelentkezz!</p>
-                    <p>Írj nekünk, és gyorsan visszajelzünk.</p>
+                    <form id="join">
+                        <div class="form-item">
+                            <input type="text" id="username" autocomplete="off" required />
+                            <label for="username">Név</label>
+                        </div>
+                        <div class="form-item">
+                            <input type="text" id="email" autocomplete="off" required />
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-item">
+                            <button type="submit" form="join" value="Submit">Submit</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="image"><img src="images/diakok.jpg" /></div>
             </section>

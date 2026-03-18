@@ -385,6 +385,62 @@ a:active {
     color: var(--muted);
 }
 
+.signup {
+    min-width: 60%;
+    display: flex;
+    justify-content: center;
+    margin-top: 11%;
+}
+
+.signupBox {
+    min-width: 60%;
+}
+
+.form-item {
+    position: relative;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
+}
+.form-item input {
+    display: block;
+    width: 80%;
+    height: 50px;
+    background: transparent;
+    border: solid 1px #ccc;
+    transition: all 0.3s ease;
+}
+.form-item input:focus {
+    border-color: white;
+}
+.form-item label {
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    top: 30%;
+    left: 10%;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 10px;
+    color: #999;
+    transition: all 0.3s ease;
+}
+.form-item input:focus + label,
+.form-item input:valid + label {
+    font-size: 11px;
+    top: -5px;
+}
+.form-item input:focus + label {
+    color: white;
+}
+
+.signupBox button {
+    height: 40px;
+    width: 150px;
+    border-radius: 50px;
+    background-color: #048cb9;
+}
+
 @media (max-width: 1350px) {
     .InnerContainer {
         width: 90%;
@@ -557,6 +613,10 @@ a:active {
 
     .menu-toggle {
         display: block;
+    }
+
+    .signup {
+        margin-top: 30%;
     }
 }
 
