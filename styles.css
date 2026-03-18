@@ -208,6 +208,12 @@ a:active {
     align-items: center;
 }
 
+.copyright {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2%;
+}
+
 .ApplyForm {
     width: 100%;
     padding: 20% 0;
@@ -292,7 +298,7 @@ a:active {
 
 .hero-inner {
     max-width: 60%;
-    margin-top: 7%;
+    margin-top: 15%;
     margin-bottom: 5%;
 }
 
@@ -526,7 +532,7 @@ a:active {
 
     .hero-inner {
         max-width: 80%;
-        margin-top: 15%;
+        margin-top: 40%;
         margin-bottom: 5%;
     }
 
