@@ -1,129 +1,114 @@
 <!doctype html>
-<html lang="hu">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
-        <title>Főoldal - GySzoft</title>
+        <link rel="stylesheet" href="style.css" />
+        <title>GySoft</title>
     </head>
     <body>
-        <nav class="nav">
-            <div
-                class="MenuToggle"
-                id="menuToggle"
-                onclick="document.querySelector('.nav').classList.toggle('active')"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
+        <nav class="Navbar">
+            <div class="Logo">
+                <img src="./images/logo.png" alt="Logo" />
+                <div>
+                    <h3>GySoft</h3>
+                    <h3>Szoftverfejlesztő</h3>
+                    <h3>Vállalkozás</h3>
+                </div>
             </div>
-            <img src="./images/logo.svg" alt="Company Logo" class="Logo" />
-            <div class="Links">
-                <a href="index.html" class="Link">Főoldal</a>
-                <a href="dual.html" class="Link">Duális</a>
-                <a href="dual-projects.html" class="Link">Projektek</a>
+                <div class="NavLinks">
+                    <a href="">
+                        <img src="./images/icons/home.svg" alt="Home" />
+                        Főoldal
+                    </a>
+                    <a href="">
+                        <img src="./images/icons/megaphone.svg" alt="Showcase" />
+                        Bemutató
+                    </a>
+                    <a href="">
+                        <img src="./images/icons/user.svg" alt="Dual" />
+                        Duális
+                    </a>
+                    <a href="">
+                        <img src="./images/icons/users.svg" alt="Dual" />
+                        Kapcsolat
+                    </a>
+                </div>
             </div>
         </nav>
-        <section class="section Greet">
-            <h1>Bemutatkozás</h1>
-            <p>
-                Köszönti a GySzoft duális cég saját oldalunkon, cégünk célja minél több informatikai
-                ágon tanuló diáknak valós tapasztalatot nyújtani a szakmában, ipari sztenderd-hez
-                igazodás, Scrum módszerek tanítása kipróbálása és nem csak sikeres de piacképes
-                vizsgákra való felkészítés.
-            </p>
-        </section>
-        <section class="section Solution">
-            <h1>Probléma megoldás</h1>
-            <p>
-                Jelenleg nagyon kevés cég képes vagy hajlandó foglalkozni diákokkal, amikor meg
-                foglalkoznak velük csak “kispadra” lesznek ültetve, nállunk mindenkit egyenlő
-                félként kezelünk, az egyetlen különbség köztünk hogy ki mihez és mennyire ért, és
-                ami fejlesztésre szoruló terület abban segítsünk.
-            </p>
-        </section>
-        <section class="section Services">
-            <div class="InnerContainer">
-                <div class="Service">
-                    <h3>Fejlődési lehetőségek</h3>
-                    <p>
-                        Velünk nem fogsz bent az iskolapadban ülni, várva az órák végét, számodra
-                        nem kézreeső nyelveket használni vagy elavut technológiát alkalmazni itt a
-                        duálisnál a legfrissebb technológiát és eszközöket próbáljuk diákjainknak,
-                        alkalmazottainknak tanítani és ezeket használni, használtatni.
-                    </p>
-                </div>
-                <div class="Service">
-                    <h3>Hálózatépítés, hardver (kis hálózat, NAS)</h3>
-                    <p>
-                        Csapatunk képes kisebb hardveres feladatok ellátására, hálózati kiépítések
-                        (router, switch, ethernet kábel), NAS avagy hálózatra csatlakoztatott
-                        tárhelyek felépítésére, felállítására, cégünkön belüli fedettségben is
-                        részük volt.
-                    </p>
-                </div>
-                <div class="Service">
-                    <h3>Hosztolás</h3>
-                    <p>
-                        Elkészült weboldalak, projektek webes "hostolása", amely projekteket
-                        elkészítik diákjaink azokat büszkén kitesszük az internetre hogy a publikum
-                        is láthassa, kis és nagy, egyéni vagy csoportos alkalmazások is kikerülnek
-                        mint ez az oldal.
-                    </p>
-                </div>
-                <div class="Service">
-                    <h3>Kisvállalati appok</h3>
-                    <p>
-                        Lelkes diákjaink, munkavállalóink csapatban, vagy akár egyénileg is képesek
-                        kis alkalmazások elkészítésére, felkérés alapján dolgozunk és dolgoztunk is
-                        már olyan alkalmazásokon amelyek megkönnyítik a dolgát az iskolai diákoknak
-                        és tanároknak egyaránt.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!--
-            <section class="Apply">
-                <div class="Info">
-                    <h2>Jelentkezés</h2>
-                    <p>
-                        Ha úgy érzed itt a helyed, jelentkezz bátran, ha kérdésed van tedd fel
-                        nyugodtan.
-                    </p>
-                </div>
-                <a href="applyPage.html"> Jelentkezés </a>
-            </section>
-        -->
-        <footer class="footer">
-            <div class="footerColumn">
-                <div class="footerColumnItems">
-                    <h3>Rólunk</h3>
-                    <a href="/index.html" class="btn lang">Főoldal</a>
-                    <a href="https://vasvari.hu/" class="btn lang">Vasvári</a>
-                    <a href="/dual.html" class="btn lang">Duális</a>
-                </div>
-                <div class="footerColumnItems">
-                    <h3>Duális</h3>
-                    <a href="/dual.html" class="btn lang">Duális képzés</a>
-                    <a href="/dual-years.html" class="btn lang">Duál évek</a>
-                    <a href="/dual-projects.html" class="btn lang">Duál projektek</a>
-                </div>
-                <div class="footerColumnItems">
-                    <h3>Jogi</h3>
-                    <a href="/impressum.html" class="btn lang">Impresszum</a>
-                    <a href="/privacy.html" class="btn lang">Adatkezelési</a>
-                    <a href="/plagium.html" class="btn lang">Plágium</a>
-                </div>
-            </div>
-            <div class="copyright">
-                <p
-                    class="lang"
-                    data-hu="© 2025 GySoft. Minden jog fenntartva."
-                    data-en="© 2025 GySoft. All rights reserved."
-                >
-                    © 2025 GySoft. Minden jog fenntartva.
+        <div class="Hero">
+            <div class="Text">
+                <h1>Cím</h1>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam veritatis
+                    quidem assumenda saepe nobis architecto dolor sint, soluta ipsa. Voluptas, ex
+                    impedit cum quo doloribus vero numquam omnis ab est. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Animi ex magnam minima velit porro facere. Illum
+                    facilis inventore placeat quia aliquid, aliquam corrupti nesciunt, recusandae
+                    eaque, ex molestias est veritatis. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Doloribus tempora quaerat, ducimus maiores eligendi consequuntur,
+                    labore quae et quo eius modi nesciunt consectetur tenetur quia voluptate dicta quos
+                    assumenda libero! Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet molestiae
+                    cupiditate incidunt laborum vero culpa nostrum, distinctio provident voluptate expedita
+                    beatae ipsa fuga explicabo tenetur dolorem, ipsam, similique autem quis.
                 </p>
             </div>
-        </footer>
+            <div class="Showcase">
+                    <img src="./images/showcase1.jpg" alt="" />
+                    <img src="./images/showcase2.jpg" alt="" />
+                    <img src="./images/showcase3.jpg" alt="" />
+                    <img src="./images/showcase4.jpg" alt="" />
+                    <img src="./images/showcase5.jpg" alt="" />
+                    <img src="./images/showcase6.jpg" alt="" />
+                    <img src="./images/showcase7.jpg" alt="" />
+                    <img src="./images/showcase8.jpg" alt="" />
+                    <img src="./images/showcase9.jpg" alt="" />
+                    <img src="./images/showcase10.jpg" alt="" />
+                    <img src="./images/showcase1.jpg" alt="" />
+            </div>
+        </div>
+        <section>
+            <div class="Card">
+                <img src="./images/projects.jpg" alt="" />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Distinctio ipsum illo ullam sequi possimus aliquam quisquam
+                    magni ad enim molestiae! Et aut dolorem laboriosam quis
+                    tenetur voluptas molestias nam placeat? Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Veritatis voluptates
+                    natus fugit, molestiae laborum et, saepe quis magni quasi
+                    praesentium laudantium ratione ab laboriosam exercitationem
+                    dignissimos! Aperiam at molestias adipisci.
+                </p>
+            </div>
+            <div class="Card">
+                <img src="./images/about.jpg" alt="" />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Distinctio ipsum illo ullam sequi possimus aliquam quisquam
+                    magni ad enim molestiae! Et aut dolorem laboriosam quis
+                    tenetur voluptas molestias nam placeat? Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Veritatis voluptates
+                    natus fugit, molestiae laborum et, saepe quis magni quasi
+                    praesentium laudantium ratione ab laboriosam exercitationem
+                    dignissimos! Aperiam at molestias adipisci.
+                </p>
+            </div>
+            <div class="Card">
+                <img src="./images/dual.jpg" alt="" />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Distinctio ipsum illo ullam sequi possimus aliquam quisquam
+                    magni ad enim molestiae! Et aut dolorem laboriosam quis
+                    tenetur voluptas molestias nam placeat? Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Veritatis voluptates
+                    natus fugit, molestiae laborum et, saepe quis magni quasi
+                    praesentium laudantium ratione ab laboriosam exercitationem
+                    dignissimos! Aperiam at molestias adipisci.
+                </p>
+            </div>
+        </section>
+        <p></p>
+        <footer></footer>
     </body>
 </html>
