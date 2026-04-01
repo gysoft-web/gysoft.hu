@@ -5,13 +5,15 @@ import { apiClient } from './api/apiClient';
 import { toast } from 'react-toastify';
 import { afterToday, DateRangePicker } from 'rsuite';
 import 'rsuite/DateRangePicker/styles/index.css';
-import { Bar, BarChart, Cell, Legend } from 'recharts';
+import { Bar, BarChart, Cell } from 'recharts';
 
 type StatisticsData = { status: FormStatus | 'all'; count: number };
 
 const App: React.FC = () => {
     const { t, i18n } = useTranslation();
     const [query, setQuery] = useState<string>('');
+    const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
+    const [deleteId, setDeleteId] = useState<number | null>(null);
     const [dateRange, setDateRange] = useState<[Date, Date] | null>(null);
     const [status, setStatus] = useState<FormStatus | 'all'>('all');
     const [applications, setApplications] = useState<Application[]>([]);
@@ -136,6 +138,23 @@ const App: React.FC = () => {
         ];
     };
 
+    const deleteApplication = () => {
+        apiClient
+            .delete(`/apply-form/${deleteId}`)
+            .then(() => {
+                setApplications((prevApps) => prevApps.filter((a) => a.id !== deleteId));
+                toast.success(t('app.applicationDeleted'));
+            })
+            .catch((error) => {
+                console.error('Error deleting application:', error);
+                toast.error(t('app.applicationDeleteFailed'));
+            });
+    };
+
+    const messageUser = (email: string) => {
+        window.location.href = `mailto:${email}`;
+    };
+
     useEffect(() => {
         searchApplications(query);
     }, [query, applications, status, dateRange]);
@@ -155,6 +174,21 @@ const App: React.FC = () => {
 
     return (
         <main className="App">
+            {confirmDelete && (
+                <div className="DeleteContainer">
+                    <div className="ConfirmDelete">
+                        <p>{t('app.confirmDelete')}</p>
+                        <div>
+                            <button className="Btn" onClick={() => deleteApplication()}>
+                                {t('app.yes')}
+                            </button>
+                            <button className="Btn" onClick={() => setConfirmDelete(false)}>
+                                {t('app.no')}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             <header>{t('app.title')}</header>
             <main className="Content">
                 <section className="Controls">
@@ -192,6 +226,7 @@ const App: React.FC = () => {
                         <thead>
                             <tr>
                                 <th>{t('app.name')}</th>
+                                <th>{t('app.notes')}</th>
                                 <th>{t('app.email')}</th>
                                 <th>{t('app.status')}</th>
                                 <th>{t('app.created')}</th>
@@ -202,10 +237,11 @@ const App: React.FC = () => {
                             {filteredApplications.map((app) => (
                                 <tr key={app.id} className={`Application ${app.status}`}>
                                     <th>{app.name}</th>
+                                    <th>{app.notes}</th>
                                     <td>{app.email}</td>
                                     <td>{t(`app.${app.status}`)}</td>
                                     <td>{getDateString(app.created)}</td>
-                                    <td>
+                                    <td className="BtnContainer">
                                         {app.status !== 'accepted' && (
                                             <button
                                                 className="Btn"
@@ -214,8 +250,6 @@ const App: React.FC = () => {
                                                 {t('app.accept')}
                                             </button>
                                         )}
-                                    </td>
-                                    <td>
                                         {app.status !== 'rejected' && (
                                             <button
                                                 className="Btn"
@@ -224,6 +258,18 @@ const App: React.FC = () => {
                                                 {t('app.reject')}
                                             </button>
                                         )}
+                                        <button
+                                            className="Btn"
+                                            onClick={() => setConfirmDelete(true)}
+                                        >
+                                            {t('app.delete')}
+                                        </button>
+                                        <button
+                                            className="Btn"
+                                            onClick={() => messageUser(app.email)}
+                                        >
+                                            {t('app.message')}
+                                        </button>
                                     </td>
                                 </tr>
                             ))}

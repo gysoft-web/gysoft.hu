@@ -34,6 +34,13 @@
         "reject": "Elutasítás",
         "send": "Változtatások Mentése",
         "revert": "Visszaállítás",
-        "changesSaved": "Változtatások sikeresen mentve"
+        "changesSaved": "Változtatások sikeresen mentve",
+        "notes": "Megjegyzések",
+        "message": "Üzenet",
+        "delete": "Törlés",
+        "confirmDelete": "Biztosan törölni szeretné ezt a jelentkezést?",
+        "yes": "Igen",
+        "no": "Nem",
+        "applicationDeleted": "Jelentkezés sikeresen törölve"
     }
 }

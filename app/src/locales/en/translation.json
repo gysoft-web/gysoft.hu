@@ -34,6 +34,13 @@
         "reject": "Reject",
         "send": "Save Changes",
         "revert": "Revert Changes",
-        "changesSaved": "Changes saved successfully"
+        "changesSaved": "Changes saved successfully",
+        "notes": "Notes",
+        "message": "Message",
+        "delete": "Delete",
+        "confirmDelete": "Are you sure you want to delete this application?",
+        "yes": "Yes",
+        "no": "No",
+        "applicationDeleted": "Application deleted successfully"
     }
 }
