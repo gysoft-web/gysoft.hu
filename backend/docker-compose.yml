@@ -1,0 +1,27 @@
+services:
+    api:
+        build: .
+        container_name: apply_api
+        env_file:
+            - .dockerenv
+        ports:
+            - '3030:3030'
+        restart: unless-stopped
+        depends_on:
+            db:
+                condition: service_healthy
+    db:
+        image: mysql
+        container_name: apply_db
+        restart: always
+        ports:
+            - '3307:3306'
+        env_file:
+            - .dockerenv
+        environment:
+            MYSQL_DATABASE: apply_db
+            MYSQL_ROOT_PASSWORD: god
+        healthcheck:
+            test: ['CMD', 'mysql', '-uroot', '-pgod', '-e', 'SELECT 1', 'apply_db']
+            interval: 5s
+            retries: 5

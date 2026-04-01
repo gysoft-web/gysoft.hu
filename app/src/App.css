@@ -1,0 +1,298 @@
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    color: var(--color-text);
+    background-color: var(--color-bg);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+:root {
+    --color-text: #0f0f0f;
+    --color-primary: #396cd8;
+    --color-border: #ccc;
+    --color-bg: #f6f6f6;
+    --color-primary-bg: #aac5ff;
+    --color-input-bg: #ffffff;
+    --color-button-bg: #e8e8e8;
+    --color-slider-bg: white;
+    --color-accepted: #009b03;
+    --color-rejected: #bb0000;
+    --color-pending: #cc9200;
+}
+:root[data-theme='dark'] {
+    --color-text: #f6f6f6;
+    --color-primary: #24c8db;
+    --color-border: #ccc;
+    --color-bg: #494949;
+    --color-primary-bg: #00535e;
+    --color-input-bg: #0f0f0f;
+    --color-button-bg: #272727;
+    --color-slider-bg: white;
+    --color-accepted: #5ff361;
+    --color-rejected: #f13636;
+    --color-pending: #f3bd34;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+input,
+.Btn {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--color-text);
+    background-color: var(--color-button-bg);
+    transition: border-color 0.25s;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.Btn {
+    cursor: pointer;
+}
+
+.Btn:hover {
+    border-color: var(--color-primary);
+}
+
+.Btn:active {
+    border-color: var(--color-primary);
+    background-color: #e8e8e8;
+}
+
+:root[data-theme='dark'] .Btn:active {
+    background-color: #0f0f0f69;
+}
+
+.language-toggle {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-border);
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--color-slider-bg);
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: var(--color-primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.App {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 2rem;
+}
+
+.Content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 8;
+}
+
+.App header {
+    font-size: 3rem;
+    font-weight: 600;
+    width: 100%;
+    background-color: var(--color-primary-bg);
+    position: absolute;
+    height: 6%;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.Sidebar {
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    min-width: 350px;
+    padding: 2%;
+    background-color: var(--color-input-bg);
+    border-left: var(--color-border) solid 1px;
+}
+
+.Sidebar section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    height: 50%;
+    width: 100%;
+}
+.Toggle {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+.Toggle > span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 20%;
+}
+.Controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.Controls .Btn,
+.Controls input,
+.Controls select {
+    flex: 1;
+    min-width: 150px;
+}
+
+.Controls div {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Controls select {
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--color-text);
+    background-color: var(--color-input-bg);
+    cursor: pointer;
+    outline: none;
+}
+.Content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 6%;
+}
+.Applications {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-input-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.123);
+}
+
+table th {
+    background-color: var(--color-primary-bg);
+    color: var(--color-text);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+table td {
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+table tr {
+    transition: background-color 0.15s ease-in-out;
+}
+
+table tr:hover {
+    background-color: var(--color-primary-bg);
+}
+
+table tr.Application.accepted * {
+    color: var(--color-accepted);
+}
+
+table tr.Application.rejected * {
+    color: var(--color-rejected);
+}
+
+table tr.Application.pending * {
+    color: var(--color-pending);
+}
