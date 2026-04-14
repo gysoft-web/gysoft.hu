@@ -242,3 +242,109 @@ section {
 .Card img {
     width: 100%;
 }
+
+.rows {
+    max-width: 80%;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-bg);
+    margin-top: 5%;
+    justify-content: space-around;
+}
+
+.text {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.imageBox {
+    max-width: 40%;
+}
+
+.images {
+    max-width: 100%;
+    height: auto;
+}
+
+.signupBox {
+    max-width: 50%;
+    min-width: 30%;
+    margin: 80px auto;
+    padding: 40px 30px;
+    border-radius: 16px;
+
+    background-color: var(--secondary-bg);
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.signupBox h3 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--secondary-text);
+}
+
+.form-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-item input {
+    width: 100%;
+    padding: 12px 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.95rem;
+    background: transparent;
+    outline: none;
+}
+
+.form-item label {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.form-item input:focus + label,
+.form-item input:valid + label {
+    top: -8px;
+    font-size: 0.7rem;
+    color: var(--secondary-text);
+}
+
+.form-button button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--button-bg);
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.form-button button:hover {
+    background: #333;
+    transform: translateY(-1px);
+}
+
+.textarea-title {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--secondary-text);
+}
