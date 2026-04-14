@@ -9,6 +9,7 @@ export const initDb = async () => {
                 name VARCHAR(50) NOT NULL,
                 email VARCHAR(40) NOT NULL UNIQUE,
                 created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                note VARCHAR(500) NOT NULL UNIQUE,
                 status VARCHAR(10) NOT NULL)
         `);
         console.log('Database initialized successfully!');

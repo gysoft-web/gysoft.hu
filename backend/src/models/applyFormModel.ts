@@ -13,6 +13,7 @@ export type ApplyForm = {
     id?: number;
     name: string;
     email: string;
+    note: string;
     created: Date;
     status: FormStatus;
 };
@@ -56,11 +57,11 @@ export const updateFormStatus = async (id: number, status: FormStatus): Promise<
  * @returns the created ApplyForm object, including the generated id and created date.
  */
 export const createForm = async (form: Omit<ApplyForm, 'id' | 'created'>): Promise<ApplyForm> => {
-    const { name, email, status } = form;
+    const { name, email, status, note } = form;
     const [result] = await db.query(
-        'INSERT INTO applications (name, email, created, status) VALUES (?, ?, ?, ?)',
-        [name, email, new Date(), status],
+        'INSERT INTO applications (name, email, created, status, note) VALUES (?, ?, ?, ?, ?)',
+        [name, email, new Date(), status, note],
     );
     const insertId = (result as { insertId: number }).insertId;
-    return { id: insertId, name, email, created: new Date(), status };
+    return { id: insertId, name, email, created: new Date(), status, note };
 };

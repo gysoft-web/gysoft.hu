@@ -44,9 +44,9 @@ exports.updateFormStatus = updateFormStatus;
  * @returns the created ApplyForm object, including the generated id and created date.
  */
 const createForm = async (form) => {
-    const { name, email, status } = form;
-    const [result] = await db_js_1.default.query('INSERT INTO applications (name, email, created, status) VALUES (?, ?, ?, ?)', [name, email, new Date(), status]);
+    const { name, email, status, note } = form;
+    const [result] = await db_js_1.default.query('INSERT INTO applications (name, email, created, status, note) VALUES (?, ?, ?, ?, ?)', [name, email, new Date(), status, note]);
     const insertId = result.insertId;
-    return { id: insertId, name, email, created: new Date(), status };
+    return { id: insertId, name, email, created: new Date(), status, note };
 };
 exports.createForm = createForm;

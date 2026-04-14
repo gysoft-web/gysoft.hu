@@ -14,6 +14,7 @@ const options = {
                     properties: {
                         name: { type: 'string' },
                         email: { type: 'string' },
+                        note: { type: 'string' },
                     },
                 },
             },

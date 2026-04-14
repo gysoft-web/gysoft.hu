@@ -142,11 +142,12 @@ exports.updateFormStatus = updateFormStatus;
  *   "email": "john@example.com",
  *   "created": "2024-01-15T10:30:00.000Z",
  *   "status": "pending"
+ *   "note": "Some additional notes like skills, age etc."
  * }
  */
 const createForm = async (req, res, next) => {
     try {
-        const { name, email } = req.body;
+        const { name, email, note } = req.body;
         if (!name || !email) {
             return res.status(400).json({ message: 'Name and email are required' });
         }
@@ -159,6 +160,7 @@ const createForm = async (req, res, next) => {
             email,
             created: new Date(),
             status: 'pending',
+            note,
         };
         const createdForm = await formModel.createForm(newForm);
         res.status(201).json(createdForm);
