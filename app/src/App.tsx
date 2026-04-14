@@ -13,6 +13,8 @@ const App: React.FC = () => {
     const { t, i18n } = useTranslation();
     const [query, setQuery] = useState<string>('');
     const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
+    const [extraInfo, setExtraInfo] = useState<boolean>(false);
+    const [app, setApp] = useState<Application | null>(null);
     const [deleteId, setDeleteId] = useState<number | null>(null);
     const [dateRange, setDateRange] = useState<[Date, Date] | null>(null);
     const [status, setStatus] = useState<FormStatus | 'all'>('all');
@@ -44,13 +46,15 @@ const App: React.FC = () => {
         return `${dateObj.toLocaleDateString()} | ${dateObj.toLocaleTimeString()}`;
     };
 
-    const acceptApplication = (app: Application) => {
+    const acceptApplication = () => {
+        if (!app) return;
         setApplications((prevApps) =>
             prevApps.map((a) => (a.id === app.id ? { ...a, status: 'accepted' } : a)),
         );
     };
 
-    const rejectApplication = (app: Application) => {
+    const rejectApplication = () => {
+        if (!app) return;
         setApplications((prevApps) =>
             prevApps.map((a) => (a.id === app.id ? { ...a, status: 'rejected' } : a)),
         );
@@ -179,13 +183,87 @@ const App: React.FC = () => {
                     <div className="ConfirmDelete">
                         <p>{t('app.confirmDelete')}</p>
                         <div>
-                            <button className="Btn" onClick={() => deleteApplication()}>
+                            <button
+                                className="Btn"
+                                onClick={() => {
+                                    deleteApplication();
+                                    setConfirmDelete(false);
+                                }}
+                            >
                                 {t('app.yes')}
                             </button>
-                            <button className="Btn" onClick={() => setConfirmDelete(false)}>
+                            <button
+                                className="Btn"
+                                onClick={() => {
+                                    setConfirmDelete(false);
+                                    setExtraInfo(true);
+                                }}
+                            >
                                 {t('app.no')}
                             </button>
                         </div>
+                    </div>
+                </div>
+            )}
+            {extraInfo && (
+                <div className="InfoContainer" onClick={() => setExtraInfo(false)}>
+                    <div className="InfoCard" onClick={(e) => e.stopPropagation()}>
+                        {app ? (
+                            <>
+                                <div className="InfoMain">
+                                    <h2>{app.name}</h2>
+                                    <p>{app.email}</p>
+                                    <p>{t(`app.${app.status}`)}</p>
+                                    <p>{getDateString(app.created)}</p>
+                                    <div className="Buttons">
+                                        <div className="Decision">
+                                            <button
+                                                className="Btn Accept"
+                                                disabled={app.status === 'accepted'}
+                                                onClick={() => {
+                                                    acceptApplication();
+                                                    app.status = 'accepted';
+                                                }}
+                                            >
+                                                {t('app.accept')}
+                                            </button>
+                                            <button
+                                                className="Btn Reject"
+                                                disabled={app.status === 'rejected'}
+                                                onClick={() => {
+                                                    rejectApplication();
+                                                    app.status = 'rejected';
+                                                }}
+                                            >
+                                                {t('app.reject')}
+                                            </button>
+                                        </div>
+                                        <button
+                                            className="Btn Message"
+                                            onClick={() => messageUser(app.email)}
+                                        >
+                                            {t('app.message')}
+                                        </button>
+                                        <button
+                                            className="Btn Delete"
+                                            onClick={() => {
+                                                setDeleteId(app.id ?? null);
+                                                setExtraInfo(false);
+                                                setConfirmDelete(true);
+                                            }}
+                                        >
+                                            {t('app.delete')}
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="InfoNotes">
+                                    <h3>{t('app.notes')}</h3>
+                                    <p className="Text">{app.note}</p>
+                                </div>
+                            </>
+                        ) : (
+                            <>Error</>
+                        )}
                     </div>
                 </div>
             )}
@@ -214,9 +292,9 @@ const App: React.FC = () => {
                         <DateRangePicker
                             shouldDisableDate={afterToday()}
                             showOneCalendar
-                            character="|"
+                            character=" - "
                             cleanable
-                            format="yyyy-MM-dd"
+                            format="yyyy/MM/dd"
                             onChange={(dates) => setDateRange(dates)}
                         />
                     </div>
@@ -226,7 +304,6 @@ const App: React.FC = () => {
                         <thead>
                             <tr>
                                 <th>{t('app.name')}</th>
-                                <th>{t('app.notes')}</th>
                                 <th>{t('app.email')}</th>
                                 <th>{t('app.status')}</th>
                                 <th>{t('app.created')}</th>
@@ -237,38 +314,18 @@ const App: React.FC = () => {
                             {filteredApplications.map((app) => (
                                 <tr key={app.id} className={`Application ${app.status}`}>
                                     <th>{app.name}</th>
-                                    <th>{app.notes}</th>
                                     <td>{app.email}</td>
                                     <td>{t(`app.${app.status}`)}</td>
                                     <td>{getDateString(app.created)}</td>
                                     <td className="BtnContainer">
-                                        {app.status !== 'accepted' && (
-                                            <button
-                                                className="Btn"
-                                                onClick={() => acceptApplication(app)}
-                                            >
-                                                {t('app.accept')}
-                                            </button>
-                                        )}
-                                        {app.status !== 'rejected' && (
-                                            <button
-                                                className="Btn"
-                                                onClick={() => rejectApplication(app)}
-                                            >
-                                                {t('app.reject')}
-                                            </button>
-                                        )}
                                         <button
                                             className="Btn"
-                                            onClick={() => setConfirmDelete(true)}
+                                            onClick={() => {
+                                                setApp(app);
+                                                setExtraInfo(true);
+                                            }}
                                         >
-                                            {t('app.delete')}
-                                        </button>
-                                        <button
-                                            className="Btn"
-                                            onClick={() => messageUser(app.email)}
-                                        >
-                                            {t('app.message')}
+                                            {t('app.view')}
                                         </button>
                                     </td>
                                 </tr>

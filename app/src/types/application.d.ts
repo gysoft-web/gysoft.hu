@@ -1,7 +1,7 @@
 type Application = {
     id?: number;
     name: string;
-    notes: string;
+    note: string;
     email: string;
     created: string;
     status: string;

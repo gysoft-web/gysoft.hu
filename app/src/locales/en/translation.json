@@ -36,11 +36,12 @@
         "revert": "Revert Changes",
         "changesSaved": "Changes saved successfully",
         "notes": "Notes",
-        "message": "Message",
+        "message": "Send Email",
         "delete": "Delete",
         "confirmDelete": "Are you sure you want to delete this application?",
         "yes": "Yes",
         "no": "No",
-        "applicationDeleted": "Application deleted successfully"
+        "applicationDeleted": "Application deleted successfully",
+        "view": "View"
     }
 }

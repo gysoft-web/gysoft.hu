@@ -36,11 +36,12 @@
         "revert": "Visszaállítás",
         "changesSaved": "Változtatások sikeresen mentve",
         "notes": "Megjegyzések",
-        "message": "Üzenet",
+        "message": "Email küldése",
         "delete": "Törlés",
         "confirmDelete": "Biztosan törölni szeretné ezt a jelentkezést?",
         "yes": "Igen",
         "no": "Nem",
-        "applicationDeleted": "Jelentkezés sikeresen törölve"
+        "applicationDeleted": "Jelentkezés sikeresen törölve",
+        "view": "Megtekintés"
     }
 }
